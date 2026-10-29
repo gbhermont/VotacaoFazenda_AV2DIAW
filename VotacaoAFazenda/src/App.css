@@ -1,0 +1,359 @@
+
+/* ---------- Aplicação e temas ---------- */
+.app {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+
+.app.dark {
+  --bg: #12131a;
+  --surface: #1e2030;
+  --surface-2: #2a2d44;
+  --text: #f1f2f8;
+  --muted: #9aa0bd;
+  --border: #353958;
+  --accent: #ef4444;
+}
+
+.app.light {
+  --bg: #f2f4fb;
+  --surface: #ffffff;
+  --surface-2: #e8ebf7;
+  --text: #1c1e2e;
+  --muted: #5c627f;
+  --border: #d6daec;
+  --accent: #dc2626;
+}
+
+.app-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+/* ---------- Página de votação ---------- */
+.pagina-votacao {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 20px 48px;
+  color: var(--papel);
+}
+
+.secao-votacao h1,
+.secao-demais-peoes h2 {
+  margin: 0 0 16px;
+}
+
+.secao-votacao > p {
+  margin-bottom: 24px;
+}
+
+/* ---------- Grades dos participantes ---------- */
+.grade-roca {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+
+.secao-demais-peoes {
+  margin-top: 48px;
+}
+
+.grade-peoes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+/* ---------- Cards ---------- */
+.participante-card {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  background: var(--papel);
+  color: var(--tinta);
+  border: 3px solid var(--madeira);
+  border-radius: 12px;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.25);
+}
+
+.participante-card.card-roca {
+  border: 4px solid var(--celeiro);
+}
+
+.participante-foto {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.participante-foto img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.participante-info {
+  position: relative;
+  padding: 16px;
+}
+
+.participante-info h3 {
+  margin: 0 0 12px;
+  overflow-wrap: anywhere;
+}
+
+.selo-roca {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 5px 10px;
+  background: var(--celeiro);
+  color: #fff;
+  border-radius: 5px;
+  font-weight: 800;
+}
+
+/* ---------- Botão de votação ---------- */
+.participante-info button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--celeiro);
+  color: #fff;
+  font: 800 1rem var(--fonte-texto);
+  cursor: pointer;
+  transition: filter 0.2s, transform 0.2s;
+}
+
+.participante-info button:hover {
+  filter: brightness(1.1);
+}
+
+.participante-info button:active {
+  transform: translateY(2px);
+}
+
+/* ---------- Confirmação de voto ---------- */
+.mensagem-confirmacao {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  position: relative;
+  z-index: 1;
+  margin-top: 24px;
+  padding: 24px;
+  background: var(--papel);
+  color: var(--tinta);
+  border: 2px solid var(--palha);
+  border-radius: 12px;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.2);
+}
+
+.mensagem-confirmacao h2 {
+  margin: 0 0 16px;
+  color: var(--pasto);
+}
+
+.mensagem-confirmacao p {
+  margin: 0 0 12px;
+}
+
+.mensagem-confirmacao a {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--celeiro);
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* ---------- Responsividade ---------- */
+@media (max-width: 650px) {
+  .pagina-votacao {
+    padding: 24px 16px 32px;
+  }
+
+  .grade-roca {
+    grid-template-columns: 1fr;
+  }
+
+  .grade-peoes {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+}
+
+/* ---------- Página de resultados ---------- */
+.pagina-resultado {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 20px 48px;
+  color: var(--papel);
+}
+
+.pagina-resultado h1 {
+  margin-bottom: 12px;
+  color: var(--palha);
+}
+
+.pagina-resultado > p {
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+
+/* Total de votos */
+.total-votos {
+  margin-bottom: 28px;
+  padding: 20px;
+  background: var(--papel);
+  color: var(--tinta);
+  border: 2px solid var(--madeira-clara);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.total-votos h2 {
+  margin-bottom: 8px;
+}
+
+.total-votos strong {
+  color: var(--celeiro);
+  font-size: 2rem;
+}
+
+/* Lista do placar */
+.placar {
+  display: grid;
+  gap: 20px;
+}
+
+.placar-item {
+  min-width: 0;
+  padding: 22px;
+  background: var(--papel);
+  color: var(--tinta);
+  border: 3px solid var(--madeira);
+  border-radius: 12px;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.2);
+}
+
+.placar-item.placar-lider {
+  border: 4px solid var(--celeiro);
+  box-shadow: 0 0 0 3px rgba(181, 51, 42, 0.2);
+}
+
+.placar-cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.placar-cabecalho h2 {
+  overflow-wrap: anywhere;
+}
+
+.placar-numero {
+  flex-shrink: 0;
+  font-weight: 800;
+  text-align: right;
+}
+
+.placar-selo {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 5px 10px;
+  background: var(--celeiro);
+  color: white;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+/* Barra de percentual */
+.barra {
+  width: 100%;
+  height: 18px;
+  margin-top: 12px;
+  overflow: hidden;
+  background: rgba(107, 68, 35, 0.2);
+  border: 1px solid var(--madeira-clara);
+  border-radius: 999px;
+}
+
+.barra-preenchida {
+  height: 100%;
+  width: 0;
+  background: var(--celeiro);
+  border-radius: inherit;
+  transition: width 0.6s ease;
+}
+
+.placar-percentual {
+  margin-top: 8px;
+  font-weight: 800;
+}
+
+/* Estado sem votos */
+.resultado-vazio {
+  padding: 28px;
+  background: var(--papel);
+  color: var(--tinta);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.resultado-vazio p {
+  margin-bottom: 18px;
+  line-height: 1.6;
+}
+
+/* Links e botões da página */
+.acoes-resultado {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.acoes-resultado a,
+.acoes-resultado button {
+  display: inline-block;
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--celeiro);
+  color: white;
+  font: 800 1rem var(--fonte-texto);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.acoes-resultado a:hover,
+.acoes-resultado button:hover {
+  filter: brightness(1.1);
+}
+
+@media (max-width: 600px) {
+  .pagina-resultado {
+    padding: 24px 16px 32px;
+  }
+
+  .placar-item {
+    padding: 16px;
+  }
+
+  .placar-cabecalho {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
